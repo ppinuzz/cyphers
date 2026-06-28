@@ -31,7 +31,12 @@ def main(plain_file, out_file, cypher=None, options={}, verbose=True):
             cypher_text, info = cyphers.Caesar(plain_text, key=options['key'], verbose=verbose)
         case 'rot13':
             if verbose:
-                print('Cyphering method selected: ROT13')
+                print('Cyphering method selected: ROT13 '
+                      "(equivalent to Caesar's with key = 13")
+            # special case of Caesar with key = 13, so that calling the
+            # cyphering command on the cyphered text will return the plain
+            # text (because 13+13 = 26, and thus A will be coded to A -> N -> A)
+            cypher_text, info = cyphers.Caesar(plain_text, key=13, verbose=verbose)
     
     out_file = Path(out_file)
     if verbose:
