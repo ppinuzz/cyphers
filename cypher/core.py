@@ -28,7 +28,7 @@ def main(plain_file, out_file, cypher=None, options={}, verbose=True):
         case 'caesar':
             if verbose:
                 print('Cyphering method selected: Caesaer')
-                cypher_text, info = cyphers.Caesar(plain_text, key=options['key'], verbose=verbose)
+            cypher_text, info = cyphers.Caesar(plain_text, key=options['key'], verbose=verbose)
         case 'rot13':
             if verbose:
                 print('Cyphering method selected: ROT13')
